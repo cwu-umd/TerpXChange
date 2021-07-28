@@ -1,0 +1,6 @@
+framework module Pods_TerpXChange {
+  umbrella header "Pods-TerpXChange-umbrella.h"
+
+  export *
+  module * { export * }
+}
