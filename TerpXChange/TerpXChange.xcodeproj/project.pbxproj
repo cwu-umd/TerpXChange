@@ -13,6 +13,7 @@
 		7F91D6C026AC52B2000D9707 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D6BF26AC52B2000D9707 /* Assets.xcassets */; };
 		7F91D6C326AC52B2000D9707 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D6C226AC52B2000D9707 /* Preview Assets.xcassets */; };
 		7F91D6CB26AC582F000D9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D6CA26AC582F000D9707 /* GoogleService-Info.plist */; };
+		7FAC9251277B043D00F4E093 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC9250277B043D00F4E093 /* LoginPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7F91D6C226AC52B2000D9707 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F91D6C426AC52B2000D9707 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F91D6CA26AC582F000D9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7FAC9250277B043D00F4E093 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		955D690452DD529809DE14E6 /* Pods-TerpXChange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TerpXChange.release.xcconfig"; path = "Target Support Files/Pods-TerpXChange/Pods-TerpXChange.release.xcconfig"; sourceTree = "<group>"; };
 		A148946244EDA4775E30205A /* Pods_TerpXChange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TerpXChange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				7F91D6BB26AC52B1000D9707 /* TerpXChangeApp.swift */,
 				7F91D6BD26AC52B1000D9707 /* ContentView.swift */,
 				7F91D6BF26AC52B2000D9707 /* Assets.xcassets */,
+				7FAC9250277B043D00F4E093 /* LoginPage.swift */,
 				7F91D6CA26AC582F000D9707 /* GoogleService-Info.plist */,
 				7F91D6C426AC52B2000D9707 /* Info.plist */,
 				7F91D6C126AC52B2000D9707 /* Preview Content */,
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F91D6BE26AC52B1000D9707 /* ContentView.swift in Sources */,
+				7FAC9251277B043D00F4E093 /* LoginPage.swift in Sources */,
 				7F91D6BC26AC52B1000D9707 /* TerpXChangeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
