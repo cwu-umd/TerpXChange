@@ -42,9 +42,9 @@ struct LoginPage: View {
             
             
             TextField("Username", text: $username)
-//                .padding()
+                //.padding(.top)
                 .background(Color(.white))
-                .cornerRadius(10.0)
+                //.cornerRadius(5.0)
                 .padding(EdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 0))
             
             
@@ -52,15 +52,25 @@ struct LoginPage: View {
             Divider().padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             
             HStack {
-                TextField("Password", text: $password)
-//                    .padding()
-                    .background(Color(.white))
-                    .cornerRadius(10.0)
-                    .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                if !self.pwHidden {
+                    TextField("Password", text: $password)
+                        //.padding(.top)
+                        .background(Color(.white))
+                        //.cornerRadius(5.0)
+                        .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                } else {
+                    SecureField("Password", text: $password)
+                        //.padding(.top)
+                        .background(Color(.white))
+                        //.cornerRadius(5.0)
+                        .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
+                }
+
                 
-                Button (action: {pwHidden.toggle()}) {
+                Button (action: {self.pwHidden.toggle()}) {
                     Image (systemName: self.pwHidden ? "eye.slash.fill" : "eye.fill").foregroundColor((self.pwHidden) ? Color.secondary : Color.blue)
                 }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 25))
+                
             }.padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             
             Divider().padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
