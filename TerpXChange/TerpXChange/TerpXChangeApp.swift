@@ -17,6 +17,7 @@ struct TerpXChangeApp: App {
         WindowGroup {
 //            ContentView()
             LoginPage()
+//            SignUpPage()
         }
     }
 }

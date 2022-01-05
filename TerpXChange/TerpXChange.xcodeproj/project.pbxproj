@@ -11,6 +11,7 @@
 		7F24B5FF2780C4DC0034A91F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B5FE2780C4DC0034A91F /* Book.swift */; };
 		7F24B6012780C6420034A91F /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B6002780C6420034A91F /* System.swift */; };
 		7F24B6032780C66D0034A91F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B6022780C66D0034A91F /* User.swift */; };
+		7F24B6052780CD140034A91F /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B6042780CD140034A91F /* SignUpPage.swift */; };
 		7F91D6BC26AC52B1000D9707 /* TerpXChangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F91D6BB26AC52B1000D9707 /* TerpXChangeApp.swift */; };
 		7F91D6BE26AC52B1000D9707 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F91D6BD26AC52B1000D9707 /* ContentView.swift */; };
 		7F91D6C026AC52B2000D9707 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F91D6BF26AC52B2000D9707 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		7F24B5FE2780C4DC0034A91F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		7F24B6002780C6420034A91F /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		7F24B6022780C66D0034A91F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7F24B6042780CD140034A91F /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
 		7F91D6B826AC52B1000D9707 /* TerpXChange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpXChange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F91D6BB26AC52B1000D9707 /* TerpXChangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpXChangeApp.swift; sourceTree = "<group>"; };
 		7F91D6BD26AC52B1000D9707 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7F24B6062780D5130034A91F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F24B5FE2780C4DC0034A91F /* Book.swift */,
+				7F24B6002780C6420034A91F /* System.swift */,
+				7F24B6022780C66D0034A91F /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		7F91D6AF26AC52B1000D9707 = {
 			isa = PBXGroup;
 			children = (
@@ -86,13 +98,12 @@
 		7F91D6BA26AC52B1000D9707 /* TerpXChange */ = {
 			isa = PBXGroup;
 			children = (
+				7F91D6BF26AC52B2000D9707 /* Assets.xcassets */,
 				7F91D6BB26AC52B1000D9707 /* TerpXChangeApp.swift */,
 				7F91D6BD26AC52B1000D9707 /* ContentView.swift */,
-				7F91D6BF26AC52B2000D9707 /* Assets.xcassets */,
 				7FAC9250277B043D00F4E093 /* LoginPage.swift */,
-				7F24B5FE2780C4DC0034A91F /* Book.swift */,
-				7F24B6002780C6420034A91F /* System.swift */,
-				7F24B6022780C66D0034A91F /* User.swift */,
+				7F24B6042780CD140034A91F /* SignUpPage.swift */,
+				7F24B6062780D5130034A91F /* Model */,
 				7F91D6CA26AC582F000D9707 /* GoogleService-Info.plist */,
 				7F91D6C426AC52B2000D9707 /* Info.plist */,
 				7F91D6C126AC52B2000D9707 /* Preview Content */,
@@ -228,6 +239,7 @@
 				7F91D6BE26AC52B1000D9707 /* ContentView.swift in Sources */,
 				7FAC9251277B043D00F4E093 /* LoginPage.swift in Sources */,
 				7F91D6BC26AC52B1000D9707 /* TerpXChangeApp.swift in Sources */,
+				7F24B6052780CD140034A91F /* SignUpPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
