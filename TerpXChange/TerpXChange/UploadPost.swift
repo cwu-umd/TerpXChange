@@ -10,7 +10,7 @@ import Firebase
 import SwiftUI
 
 
-struct uploadpost: View {
+struct UploadPost: View {
     
     @State var bookTitle = ""
     @State var bookCat = ""
@@ -83,6 +83,6 @@ struct uploadpost: View {
 
 struct uploadpost_preview: PreviewProvider {
     static var previews: some View {
-        uploadpost().previewDevice("iPhone 12")
+        UploadPost().previewDevice("iPhone 12")
     }
 }
