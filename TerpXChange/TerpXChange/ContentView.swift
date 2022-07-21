@@ -12,8 +12,7 @@ struct ContentView: View {
     
     @State var tabSelected = 0
     
-    @State var tabViewIcon:[String] = ["house", "message.circle", "plus.circle.fill", "questionmark.app.dashed", "person.circle"]
-    @State var tbics = ["house.fill", "message.circle.fill", "", "", "person.circle.fill"]
+    @State var tabViewIcon = [("house","house.fill"), ("message.circle","message.circle.fill"), ("plus.circle.fill",""), ("questionmark.app.dashed","questionmark.app.fill"), ("person.circle","person.circle.fill")]
     
     
     var tabIconSize:CGFloat = UIScreen.main.bounds.width
@@ -24,47 +23,10 @@ struct ContentView: View {
         
         // Elements overley
         ZStack {
-        
-            // Default tab view
-//            TabView(selection: $tabSelected) {
-//
-//                //First tab
-//                MainFeedPage().tabItem {
-//                        Label("Home", systemImage: "house")
-//                }.tag(0)
-//
-//                // Message tab
-//                LoginPage().tabItem {
-//                    Label("Chat", systemImage: "message")
-//                }.tag(1)
-//
-//                // Profile tab
-//                SignUpPage().tabItem {
-//                    Label("Profile", systemImage: "person")
-//                }.tag(2)
-//
-//            }
-//
-//            if tabSelected == 0 {
-//                VStack{
-//                    Spacer()
-//                    HStack {
-//                        Spacer()
-//                        searchButton()
-//                            .padding(.bottom, 65)
-//                    }
-//                }
-//
-//            }
-            
-            
             
             // Custom tab view
-            
             VStack {
-                
-                
-                
+
                 switch tabSelected {
                     
                 case 0:
@@ -102,37 +64,22 @@ struct ContentView: View {
                                 
                             }, label: {
                                 if num == 2 {
-                                    Image(systemName: tabViewIcon[num])
+                                    Image(systemName: tabViewIcon[num].0)
                                         .font(.system(size:tabIconSize * 0.15, weight: .bold))
                                         .foregroundColor(.blue)
                                 } else {
-                                    Image(systemName: tabSelected == num ? tbics[num] : tabViewIcon[num])
+                                    Image(systemName: tabSelected != num ? tabViewIcon[num].0 : tabViewIcon[num].1)
                                         .font(.system(size:tabIconSize * 0.08, weight: .bold))
                                         .foregroundColor(.black)
                                 }
                             })
                         
-                        
-                            
                         Spacer()
                         
                     }
-                    
-                    
-                    
                 }
-                
-                
             }
-            
-            
-            
-            
-            
-            
-        
         }
-        
     }
 }
 
