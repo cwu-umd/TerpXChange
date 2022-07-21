@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var tabSelected = 0
     
     @State var tabViewIcon:[String] = ["house", "message.circle", "plus.circle.fill", "questionmark.app.dashed", "person.circle"]
+    @State var tbics = ["house.fill", "message.circle.fill", "", "", "person.circle.fill"]
+    
     
     var tabIconSize:CGFloat = UIScreen.main.bounds.width
 
@@ -104,11 +106,13 @@ struct ContentView: View {
                                         .font(.system(size:tabIconSize * 0.15, weight: .bold))
                                         .foregroundColor(.blue)
                                 } else {
-                                    Image(systemName: tabViewIcon[num])
+                                    Image(systemName: tabSelected == num ? tbics[num] : tabViewIcon[num])
                                         .font(.system(size:tabIconSize * 0.08, weight: .bold))
                                         .foregroundColor(.black)
                                 }
                             })
+                        
+                        
                             
                         Spacer()
                         
