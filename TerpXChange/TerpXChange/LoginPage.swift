@@ -16,6 +16,9 @@ struct LoginPage: View {
     
     @State var pwHidden: Bool = true
     
+    @State var errLabel: String = ""
+    
+    
     var iconSize: CGFloat = UIScreen.main.bounds.width * 0.16
     var titleSize: CGFloat = UIScreen.main.bounds.width * 0.103
     var newSignUp: CGFloat = UIScreen.main.bounds.width * 0.045
@@ -67,17 +70,20 @@ struct LoginPage: View {
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             
-            Divider().padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            Divider().padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
             
-//            Error message to be shown here (TBI)
+//          Error message to be shown here (TBI)
+            if errLabel != "" {
+                Text(errLabel).padding(.all, 10.0).foregroundColor(.red)
+            }
             
-            Button(action: {print("Logging in.....")}){
+            Button(action: {signIn(email: username, passwd: password)}){
                 Text("Sign In")
                     .font(.system(size: newSignUp))
                     .frame(width: signinButtonW, height: signinButtonH, alignment: .center)
                     .overlay(Capsule().stroke().fill(Color.black))
                     .foregroundColor(.black)
-            }.padding()
+            }.padding(.top, 5.0)
             
             Spacer()
             
@@ -97,8 +103,49 @@ struct LoginPage: View {
         
     }
     
+    
+    
+    
+    
+    
+    
+    func signIn(email: String, passwd: String) {
+        print("Logging in......")
+        
+        let trimEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimpasswd = passwd.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let authHandle = Auth.auth()
+        
+        authHandle.addStateDidChangeListener { auth, user in
+            
+            print(user)
+            print(user?.uid)
+            
+            if user == nil {
+                authHandle.signIn(withEmail: trimEmail, password: trimpasswd) { result, err in
+                    
+                    if err != nil {
+    //                    print("Firebase Error: \(err!)")
+                        errLabel = err!.localizedDescription
+                    } else {
+                        print("Welcome to TerpXChange")
+                    }
+                    
+                }
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
 }
-
 
 
 
