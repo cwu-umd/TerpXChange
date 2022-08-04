@@ -82,9 +82,7 @@ struct LoginPage: View {
                 }
                 
                 Group {
-                    NavigationLink(destination: MainFeedPage().navigationBarBackButtonHidden(true).navigationTitle("").navigationBarHidden(true), isActive: $logginSuccess){
-                        Text("")
-                    }
+                    NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true).navigationTitle("").navigationBarHidden(true), isActive: $logginSuccess){}
                     
                     Button(action: {signIn(email: username, passwd: password)}){
                         Text("Sign In")
