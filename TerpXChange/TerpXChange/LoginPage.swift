@@ -177,6 +177,8 @@ struct LoginPage_Preview: PreviewProvider {
 
         LoginPage()
             .previewDevice("iPod touch (7th generation)")
+        
+        LoginPage().previewDevice("iPhone 12")
 
     }
 }
