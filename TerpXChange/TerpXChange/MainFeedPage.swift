@@ -20,7 +20,7 @@ struct MainFeedPage: View {
 //                        CardView(image: "mirror", price: "$30", title: "Living Room Mirror", user: "Steve Rogers", className: "Other", tag1: "Dorm", tag2: "Accessories")
 
             
-        }
+        }.padding(.top)
     }
     
 }
