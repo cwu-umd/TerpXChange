@@ -20,6 +20,8 @@ struct LoginPage: View {
     
     @State var logginSuccess: Bool = false
     
+    @State var userIsLoggedIn: Bool = false
+    
     
     var iconSize: CGFloat = UIScreen.main.bounds.width * 0.16
     var titleSize: CGFloat = UIScreen.main.bounds.width * 0.103
@@ -29,6 +31,18 @@ struct LoginPage: View {
     
     
     var body: some View {
+        
+        if userIsLoggedIn {
+            ContentView()
+        } else {
+            loginContent
+        }
+        
+    }
+    
+    
+    
+    var loginContent: some View {
         
         NavigationView {
         
@@ -82,7 +96,7 @@ struct LoginPage: View {
                 }
                 
                 Group {
-                    NavigationLink(destination: MainFeedPage().navigationBarBackButtonHidden(true).navigationTitle("").navigationBarHidden(true), isActive: $logginSuccess){
+                    NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true).navigationTitle("").navigationBarHidden(true), isActive: $logginSuccess){
                         Text("")
                     }
                     
@@ -112,10 +126,22 @@ struct LoginPage: View {
             // End of V-Stack
             
         }
+        .onAppear{
+            Auth.auth().addStateDidChangeListener { auth, user in
+                
+                if user != nil { // User is currently signed in
+                    print(user)
+                    print(user?.uid)
+                    
+                    userIsLoggedIn.toggle()
+                }
+                
+            }
+        }
         // End of navigationview
         
-        
     }
+    
     
     
     
@@ -130,38 +156,20 @@ struct LoginPage: View {
         let trimpasswd = passwd.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let authHandle = Auth.auth()
-        
-        authHandle.addStateDidChangeListener { auth, user in
+        authHandle.signIn(withEmail: trimEmail, password: trimpasswd) { result, err in
             
-            print(user)
-            print(user?.uid)
-            
-            if user == nil {
-                authHandle.signIn(withEmail: trimEmail, password: trimpasswd) { result, err in
-                    
-                    if err != nil {
-    //                    print("Firebase Error: \(err!)")
-                        errLabel = err!.localizedDescription
-                    } else {
-                        print("Welcome to TerpXChange")
-                        logginSuccess = true
-                    }
-                    
-                }
+            if err != nil {
+//              print("Firebase Error: \(err!)")
+                errLabel = err!.localizedDescription
+            } else {
+                print("Welcome to TerpXChange")
+                logginSuccess = true
             }
             
-            // Testing purpose
-//            logginSuccess = true
-            
-            
         }
-        
+    
     }
-    
-    
-    
-    
-    
+        
 }
 
 
