@@ -119,7 +119,7 @@ struct searchButton: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().previewDevice("iPod touch (7th generation)")
-        ContentView().previewDevice("iPhone 12")
+//        ContentView().previewDevice("iPhone 12")
     }
 }
 
