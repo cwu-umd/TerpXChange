@@ -22,7 +22,6 @@ struct ContentView: View {
 
 
     
-<<<<<<< HEAD
     var body: some View {
         
         if userIsSignedIn {
@@ -51,8 +50,7 @@ struct ContentView: View {
                         Text("Message Page (To be implemented)")
                     }
                 case 2:
-//                    UploadPost()
-                    Text("there will be uploadpost view in hank_branch")
+                    UploadPost()
                 case 3:
                     NavigationView {
                         Text("Coming soon")
