@@ -99,6 +99,7 @@ struct LoginPage: View {
                     NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true).navigationTitle("").navigationBarHidden(true), isActive: $logginSuccess){
                         Text("")
                     }
+
                     
                     Button(action: {signIn(email: username, passwd: password)}){
                         Text("Sign In")
@@ -144,11 +145,6 @@ struct LoginPage: View {
     
     
     
-    
-    
-    
-    
-    
     func signIn(email: String, passwd: String) {
         print("Logging in......")
         
@@ -185,6 +181,8 @@ struct LoginPage_Preview: PreviewProvider {
 
         LoginPage()
             .previewDevice("iPod touch (7th generation)")
+        
+        LoginPage().previewDevice("iPhone 12")
 
     }
 }

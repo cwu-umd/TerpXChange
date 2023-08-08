@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 
+
 struct ContentView: View {
     
     @State var userIsSignedIn = true
@@ -21,6 +22,7 @@ struct ContentView: View {
 
 
     
+<<<<<<< HEAD
     var body: some View {
         
         if userIsSignedIn {
@@ -169,3 +171,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().previewDevice("iPod touch (7th generation)")
     }
 }
+
