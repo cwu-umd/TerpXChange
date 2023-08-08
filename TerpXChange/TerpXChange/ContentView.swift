@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 
 struct ContentView: View {
+    
+    @State var userIsSignedIn = true
     
     @State var tabSelected = 0
     
@@ -19,7 +22,19 @@ struct ContentView: View {
 
 
     
+<<<<<<< HEAD
     var body: some View {
+        
+        if userIsSignedIn {
+            content
+        } else {
+            LoginPage()
+        }
+
+    }
+    
+    
+    var content: some View {
         
         // Elements overley
         ZStack {
@@ -36,16 +51,31 @@ struct ContentView: View {
                         Text("Message Page (To be implemented)")
                     }
                 case 2:
-                    UploadPost()
-                    
+//                    UploadPost()
+                    Text("there will be uploadpost view in hank_branch")
                 case 3:
                     NavigationView {
                         Text("Coming soon")
                     }
                 case 4:
-                    NavigationView {
+//                    NavigationView {
                         Text("Profile Page (To be implemented)")
-                    }
+
+                        Button (action: {
+                            print("siging out a user")
+
+                            do {
+                                try Auth.auth().signOut()
+                            } catch let signOutError as NSError {
+                                print("Error signing out: %@", signOutError)
+                            }
+                            
+
+                        }, label: {
+                            Text("Sign Out")
+                        })
+                        
+//                    }
                 default:
                     MainFeedPage()
                 }
@@ -80,46 +110,65 @@ struct ContentView: View {
                 }
             }
         }
-    }
-}
-
-
-
-struct searchButton: View {
-    
-    @State var show = false
-    
-    var body: some View {
-        
-        VStack{
+        .onAppear {
             
-        
-            Button (action: {
-                show.toggle()
-            }) {
-                Image (systemName: "magnifyingglass")
-                    .resizable()
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
-                    .padding()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 55, height: 50)
-            }
-            .background(Color.red)
-            .mask(Circle())
-            .shadow(color: .blue, radius: 20, x: 0, y: 0)
+            Auth.auth().addStateDidChangeListener { auth, user in
+                if user == nil {
                     
+                    print("this is in contentview page")
+                    print(user)
+                    print(user?.uid)
+                    
+                    userIsSignedIn.toggle()
+                }
+            }
+            
         }
         
     }
-                
+    
+    
 }
+
+
+
+
+
+//struct searchButton: View {
+//
+//    @State var show = false
+//
+//    var body: some View {
+//
+//        VStack{
+//
+//
+//            Button (action: {
+//                show.toggle()
+//            }) {
+//                Image (systemName: "magnifyingglass")
+//                    .resizable()
+//                    .font(.largeTitle)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 55, height: 50)
+//            }
+//            .background(Color.red)
+//            .mask(Circle())
+//            .shadow(color: .blue, radius: 20, x: 0, y: 0)
+//
+//        }
+//
+//    }
+//
+//}
+
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().previewDevice("iPod touch (7th generation)")
-//        ContentView().previewDevice("iPhone 12")
     }
 }
 
