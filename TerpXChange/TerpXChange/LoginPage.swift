@@ -22,6 +22,8 @@ struct LoginPage: View {
     
     @State var userIsLoggedIn: Bool = false
     
+    @State var showSignUpPage: Bool = false
+    
     
     var iconSize: CGFloat = UIScreen.main.bounds.width * 0.16
     var titleSize: CGFloat = UIScreen.main.bounds.width * 0.103
@@ -115,9 +117,14 @@ struct LoginPage: View {
                 HStack {
                     Text("New to TerpXChange? ").font(.system(size: newSignUp))
                     
-                    Button (action: {}){
+                    Button (action: {showSignUpPage.toggle()}){
                         Text("Sign Up").font(.system(size: newSignUp))
+                    }.sheet(isPresented: $showSignUpPage) {
+                        SignUpPage()
                     }
+                    
+                    
+                    
                 }
                 .padding(.bottom)
                 
@@ -131,8 +138,10 @@ struct LoginPage: View {
             Auth.auth().addStateDidChangeListener { auth, user in
                 
                 if user != nil { // User is currently signed in
-                    print(user)
-                    print(user?.uid)
+                    
+                    print("This is in loginpage")
+                    print("user print out : \(user)")
+                    print("user uid: \(user?.uid)")
                     
                     userIsLoggedIn.toggle()
                 }
