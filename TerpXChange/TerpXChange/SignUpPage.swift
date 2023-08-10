@@ -14,6 +14,9 @@ struct SignUpPage: View {
     @State var new_username: String = ""
     @State var new_password: String = ""
     
+    @State var errMessage: String? // default nil
+    
+    
     @State var pw_hidden: Bool = true
     
     
@@ -38,13 +41,14 @@ struct SignUpPage: View {
             
             // Password
             HStack {
-                if pw_hidden {
-                    SecureField("Passowrd", text: $new_password)
+                if self.pw_hidden {
+                    SecureField("Password", text: $new_password)
                         .padding(EdgeInsets(top: 20, leading: 35, bottom: 20, trailing: 0))
                 } else {
                     TextField("Password", text: $new_password)
-                        padding(EdgeInsets(top: 20, leading: 35, bottom: 20, trailing: 0))
+                        .padding(EdgeInsets(top: 20, leading: 35, bottom: 20, trailing: 0))
                 }
+                
 
                 Button(action: {pw_hidden.toggle()}) {
                     Image(systemName: self.pw_hidden ? "eye.slash.fill" : "eye.fill")
@@ -56,8 +60,14 @@ struct SignUpPage: View {
             Divider().padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             
             // Error Message (TBI)
+            if errMessage != nil {
+                Text (errMessage!)
+                    .foregroundColor(.red)
+                    .padding(EdgeInsets(top: 15, leading: 10, bottom: 0, trailing: 0))
+            }
             
-            Button(action: {}) {
+            
+            Button(action: {createUser(email: new_username, passwd: new_password)}) {
                 Text("Create Account")
                     .frame(width: signupButtonW, height: signupButtonH, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .overlay(Capsule().stroke().fill(Color.black))
@@ -73,6 +83,39 @@ struct SignUpPage: View {
         
     }
     
+    
+    
+    
+    
+    func createUser (email: String, passwd: String) {
+        
+        let trimEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimPasswd = passwd.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        Auth.auth().createUser(withEmail: trimEmail, password: trimPasswd) { (result, err) in
+            
+            if err != nil {
+                // Errors thrown, show error messages!
+                errMessage = err!.localizedDescription
+                
+            } else {
+                // Successfully registered an user
+                
+                print("inside createUser function")
+                print("the following is the result: \(result!.user.metadata)")
+                
+                Firestore.firestore().collection("accounts").document(result!.user.uid).setData(["Email" : email])
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
 }
 
 
@@ -81,6 +124,8 @@ struct SignUpPage: View {
 
 struct SignUpPage_Preview: PreviewProvider {
     static var previews: some View {
-        SignUpPage().previewDevice("iPhone 12 Pro Max")
+//        SignUpPage().previewDevice("iPhone 12 Pro Max")
+        SignUpPage().previewDevice("iPhone 8")
+
     }
 }
