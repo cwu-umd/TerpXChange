@@ -46,7 +46,8 @@ struct UploadPost: View {
                         Spacer()
                         
                         Button(action: {
-                            showAlert.toggle()
+//                            showAlert.toggle()
+                            post_operation()
                         }){
                             Text("Post")
                                 .padding()
@@ -68,7 +69,7 @@ struct UploadPost: View {
                     Divider()
                     
                     HStack {
-                        TextField("Class name", text: $className).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
+                        TextField("ISBN", text: $className).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                         Divider()
                         TextField("book price (require)", text: $bookPrice).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                     }.frame(height: 25)
@@ -164,11 +165,72 @@ struct UploadPost: View {
         
     }
     
+    
+    
+    
+    func post_operation () -> Void {
+        
+//        [V] 1. Storing all textbook information to book_posts database
+//        [V] 2. Adding textbook unique ID to specific account collection
+//        [] 3. Uploading textbook images to firebase storage folder in path => /'textbookId'/.
+        
+        if let currentUser = Auth.auth().currentUser {
+//            Current signed in account
+            
+            let db = Firestore.firestore()
+            let bookDb = db.collection("book_posts")
+            let userDb = db.collection("accounts")
+            
+            let uid = currentUser.uid
+            let bookId = bookDb.document().documentID
+            
+            print(bookId)
+            
+//            Adding book info to textbook database
+            bookDb
+                .document(bookId)
+                .setData(["description" : bookDescription,
+                          "poster" : uid,
+                          "price" : bookPrice,
+                          "title" : bookTitle]) {
+                    err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                    }
+                }
+            
+            
+//            Adding textbook ID under specific account
+            userDb
+                .document(uid)
+                .collection("book_posts")
+                .document(bookId)
+            
+            
+            
+        } else {
+//            No current logged in account
+            
+            print("Error throw in UploadPost")
+            print("No current logged in user!")
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
 }
 
 struct uploadpost_preview: PreviewProvider {
     static var previews: some View {
-        UploadPost().previewDevice("iPhone 8")
-        UploadPost().previewDevice("iPhone 12")
+        UploadPost()
     }
 }

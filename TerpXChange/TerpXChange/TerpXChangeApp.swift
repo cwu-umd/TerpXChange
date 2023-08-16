@@ -15,7 +15,8 @@ struct TerpXChangeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginPage()
+//            LoginPage()
+            ContentView()
         }
     }
 }
