@@ -192,12 +192,11 @@ struct UploadPost: View {
                 .setData(["description" : bookDescription,
                           "poster" : uid,
                           "price" : bookPrice,
-                          "title" : bookTitle]) {
-                    err in
+                          "title" : bookTitle]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {
-                        print("Document successfully written!")
+                        print("Document successfully written to bookDb!")
                     }
                 }
             
@@ -207,7 +206,13 @@ struct UploadPost: View {
                 .document(uid)
                 .collection("book_posts")
                 .document(bookId)
-            
+                .setData([:]) { err in
+                    if let err = err {
+                        print("Error when writing document: \(err)")
+                    } else {
+                        print("Data successfully written to userDb!")
+                    }
+                }
             
             
         } else {
