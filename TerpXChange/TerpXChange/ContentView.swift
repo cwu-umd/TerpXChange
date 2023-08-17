@@ -79,7 +79,7 @@ struct ContentView: View {
                 }
                 
                 Spacer()
-                Divider()
+                Divider().frame(height: 1)
                 HStack {
                     
                     ForEach(0..<5) { num in
