@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		31926D5FD0206CF79329C878 /* Pods_TerpXChange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A148946244EDA4775E30205A /* Pods_TerpXChange.framework */; };
+		3689E0EA287626FE002ACCA2 /* MainFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E0E9287626FE002ACCA2 /* MainFeedPage.swift */; };
+		3689E0EC28762DBD002ACCA2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E0EB28762DBD002ACCA2 /* CardView.swift */; };
+		369409D82A86119C006B95B3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369409D72A86119B006B95B3 /* ImagePicker.swift */; };
+		36A570FA287F7DE500F4EA44 /* UploadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A570F9287F7DE500F4EA44 /* UploadPost.swift */; };
 		7F24B5FF2780C4DC0034A91F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B5FE2780C4DC0034A91F /* Book.swift */; };
 		7F24B6012780C6420034A91F /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B6002780C6420034A91F /* System.swift */; };
 		7F24B6032780C66D0034A91F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F24B6022780C66D0034A91F /* User.swift */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3689E0E9287626FE002ACCA2 /* MainFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedPage.swift; sourceTree = "<group>"; };
+		3689E0EB28762DBD002ACCA2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		369409D72A86119B006B95B3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		36A570F9287F7DE500F4EA44 /* UploadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPost.swift; sourceTree = "<group>"; };
 		7CAC70FAAFE56B642B7D43C4 /* Pods-TerpXChange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TerpXChange.debug.xcconfig"; path = "Target Support Files/Pods-TerpXChange/Pods-TerpXChange.debug.xcconfig"; sourceTree = "<group>"; };
 		7F24B5FE2780C4DC0034A91F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		7F24B6002780C6420034A91F /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -102,7 +110,11 @@
 				7F91D6BB26AC52B1000D9707 /* TerpXChangeApp.swift */,
 				7F91D6BD26AC52B1000D9707 /* ContentView.swift */,
 				7FAC9250277B043D00F4E093 /* LoginPage.swift */,
+				36A570F9287F7DE500F4EA44 /* UploadPost.swift */,
+				369409D72A86119B006B95B3 /* ImagePicker.swift */,
 				7F24B6042780CD140034A91F /* SignUpPage.swift */,
+				3689E0E9287626FE002ACCA2 /* MainFeedPage.swift */,
+				3689E0EB28762DBD002ACCA2 /* CardView.swift */,
 				7F24B6062780D5130034A91F /* Model */,
 				7F91D6CA26AC582F000D9707 /* GoogleService-Info.plist */,
 				7F91D6C426AC52B2000D9707 /* Info.plist */,
@@ -233,10 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A570FA287F7DE500F4EA44 /* UploadPost.swift in Sources */,
 				7F24B6012780C6420034A91F /* System.swift in Sources */,
+				3689E0EC28762DBD002ACCA2 /* CardView.swift in Sources */,
 				7F24B5FF2780C4DC0034A91F /* Book.swift in Sources */,
 				7F24B6032780C66D0034A91F /* User.swift in Sources */,
+				3689E0EA287626FE002ACCA2 /* MainFeedPage.swift in Sources */,
 				7F91D6BE26AC52B1000D9707 /* ContentView.swift in Sources */,
+				369409D82A86119C006B95B3 /* ImagePicker.swift in Sources */,
 				7FAC9251277B043D00F4E093 /* LoginPage.swift in Sources */,
 				7F91D6BC26AC52B1000D9707 /* TerpXChangeApp.swift in Sources */,
 				7F24B6052780CD140034A91F /* SignUpPage.swift in Sources */,
